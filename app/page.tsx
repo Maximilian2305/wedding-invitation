@@ -69,7 +69,7 @@ export default function Home() {
                 href="#gifts"
                 className="inline-block border border-ivory px-8 py-3 font-sans text-xs uppercase tracking-[0.3em] text-ivory transition-colors hover:bg-ivory hover:text-burgundy-dark"
               >
-                Send a gift
+                Send a gift/RSVP
               </a>
             </div>
           </div>
