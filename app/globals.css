@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+:root {
+  --background: #faf6ee;
+  --foreground: #3a342c;
+}
+
+@theme inline {
+  --color-cream: #faf6ee;
+  --color-ivory: #fffdf8;
+  --color-sand: #f1e9d8;
+  --color-gold: #b08d57;
+  --color-gold-light: #d4b982;
+  --color-ink: #3a342c;
+  --color-muted: #7a7064;
+
+  --font-sans: var(--font-jost);
+  --font-serif: var(--font-cormorant);
+  --font-script: var(--font-pinyon);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-jost), system-ui, sans-serif;
+}
+
+::selection {
+  background: rgba(176, 141, 87, 0.25);
+}
+
+/* Hero entrance animation */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-up {
+  animation: fade-up 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Scroll reveal (used by the Reveal component) */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 1s ease,
+    transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Small moving line under the hero */
+@keyframes scroll-line {
+  0% {
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+  50% {
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+  51% {
+    transform-origin: bottom;
+  }
+  100% {
+    transform: scaleY(0);
+    transform-origin: bottom;
+  }
+}
+
+.scroll-line {
+  animation: scroll-line 2.4s ease-in-out infinite;
+}
+
+/* Respect people who prefer less motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .fade-up,
+  .scroll-line {
+    animation: none;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
