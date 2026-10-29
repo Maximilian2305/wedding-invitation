@@ -11,11 +11,17 @@ type DonationInfo = {
   note: string;
 };
 
+// White input boxes that stand out clearly
 const fieldClass =
-  "w-full border-b border-gold/40 bg-transparent px-1 py-3 font-sans text-base text-ink placeholder:text-muted/60 outline-none transition-colors focus:border-gold";
+  "w-full border border-burgundy/30 bg-white px-4 py-3 font-sans text-base text-ink placeholder:text-muted/70 outline-none transition focus:border-gold focus:ring-2 focus:ring-gold/40";
 
+// Labels on dark burgundy areas
 const labelClass =
-  "block font-sans text-xs uppercase tracking-[0.25em] text-muted";
+  "block font-sans text-xs uppercase tracking-[0.25em] text-paper-soft";
+
+// Labels on the cream details card
+const formLabelClass =
+  "mb-2 block font-sans text-xs font-medium uppercase tracking-[0.2em] text-burgundy";
 
 export default function GiftSection({
   items,
@@ -102,23 +108,23 @@ export default function GiftSection({
 
   if (status === "sent") {
     return (
-      <div className="mx-auto max-w-xl border border-gold/40 bg-cream p-10 text-center">
-        <p className="font-script text-5xl text-gold">Thank you</p>
-        <p className="mt-4 font-serif text-xl text-ink">
+      <div className="mx-auto max-w-xl border border-gold/40 bg-card p-10 text-center">
+        <p className="font-script text-5xl text-gold-light">Thank you</p>
+        <p className="mt-4 font-serif text-xl text-paper">
           {summary.name}, we are so grateful for your love.
         </p>
         {summary.gifts.length > 0 && (
-          <p className="mt-4 font-sans text-base text-muted">
+          <p className="mt-4 font-sans text-base text-paper-soft">
             Your gifts: {summary.gifts.join(", ")}.
           </p>
         )}
         {summary.transfer && (
-          <p className="mt-2 font-sans text-base text-muted">
+          <p className="mt-2 font-sans text-base text-paper-soft">
             Thank you for your transfer. We will confirm it on our side.
           </p>
         )}
         {summary.companions > 0 && (
-          <p className="mt-2 font-sans text-base text-muted">
+          <p className="mt-2 font-sans text-base text-paper-soft">
             We have noted {summary.companions}{" "}
             {summary.companions === 1 ? "person" : "people"} coming with you.
           </p>
@@ -149,10 +155,10 @@ export default function GiftSection({
 
       {/* Gift list */}
       <div>
-        <h3 className="text-center font-serif text-3xl text-ink">
+        <h3 className="text-center font-serif text-3xl text-paper">
           Choose your gifts
         </h3>
-        <p className="mx-auto mt-3 max-w-xl text-center font-sans text-base text-muted">
+        <p className="mx-auto mt-3 max-w-xl text-center font-sans text-base text-paper-soft">
           Tap one gift or many. Other guests can choose the same gifts too.
         </p>
 
@@ -162,7 +168,7 @@ export default function GiftSection({
 
           return (
             <div key={category} className="mt-10">
-              <h4 className="mb-4 font-sans text-xs uppercase tracking-[0.3em] text-gold">
+              <h4 className="mb-4 font-sans text-xs uppercase tracking-[0.3em] text-gold-light">
                 {category}
               </h4>
               <ul className="grid gap-4 sm:grid-cols-2">
@@ -177,15 +183,15 @@ export default function GiftSection({
                         onClick={() => toggleGift(item.id)}
                         className={`flex h-full w-full items-start justify-between gap-4 border p-5 text-left transition-colors ${
                           isSelected
-                            ? "border-gold bg-gold/10"
-                            : "border-gold/30 bg-cream hover:border-gold"
+                            ? "border-gold bg-gold/20"
+                            : "border-gold/30 bg-card hover:border-gold"
                         }`}
                       >
                         <span>
-                          <span className="block font-serif text-xl text-ink">
+                          <span className="block font-serif text-xl text-paper">
                             {item.name}
                           </span>
-                          <span className="mt-1 block font-sans text-sm text-muted">
+                          <span className="mt-1 block font-sans text-sm text-paper-soft">
                             {item.description}
                           </span>
                         </span>
@@ -193,7 +199,7 @@ export default function GiftSection({
                           aria-hidden
                           className={`mt-1 flex h-6 w-6 shrink-0 items-center justify-center border text-sm ${
                             isSelected
-                              ? "border-gold bg-gold text-ivory"
+                              ? "border-gold bg-gold text-burgundy-dark"
                               : "border-gold/40 text-transparent"
                           }`}
                         >
@@ -210,9 +216,9 @@ export default function GiftSection({
       </div>
 
       {/* Donation */}
-      <div className="mx-auto max-w-xl border border-gold/30 bg-cream p-6 text-center sm:p-10">
-        <h3 className="font-serif text-3xl text-ink">Send a monetary gift</h3>
-        <p className="mt-3 font-sans text-base text-muted">
+      <div className="mx-auto max-w-xl border border-gold/30 bg-card p-6 text-center sm:p-10">
+        <h3 className="font-serif text-3xl text-paper">Send a monetary gift</h3>
+        <p className="mt-3 font-sans text-base text-paper-soft">
           Prefer to give by bank transfer? Tap the button to see our account
           details.
         </p>
@@ -221,7 +227,7 @@ export default function GiftSection({
           type="button"
           onClick={() => setShowAccount((value) => !value)}
           aria-expanded={showAccount}
-          className="mt-6 bg-gold px-8 py-4 font-sans text-xs uppercase tracking-[0.3em] text-ivory transition-colors hover:bg-ink"
+          className="mt-6 bg-gold px-8 py-4 font-sans text-xs uppercase tracking-[0.3em] text-burgundy-dark transition-colors hover:bg-gold-light"
         >
           {showAccount ? "Hide account details" : "Donate"}
         </button>
@@ -231,50 +237,50 @@ export default function GiftSection({
             <div className="space-y-5 border-y border-gold/30 py-6 text-center">
               <div>
                 <p className={labelClass}>Bank</p>
-                <p className="mt-1 font-serif text-2xl text-ink">
+                <p className="mt-1 font-serif text-2xl text-paper">
                   {donation.bankName}
                 </p>
               </div>
               <div>
                 <p className={labelClass}>Account name</p>
-                <p className="mt-1 font-serif text-2xl text-ink">
+                <p className="mt-1 font-serif text-2xl text-paper">
                   {donation.accountName}
                 </p>
               </div>
               <div>
                 <p className={labelClass}>Account number</p>
-                <p className="mt-1 font-serif text-3xl tracking-widest text-ink tabular-nums">
+                <p className="mt-1 font-serif text-3xl tracking-widest text-paper tabular-nums">
                   {donation.accountNumber}
                 </p>
                 <button
                   type="button"
                   onClick={copyAccountNumber}
-                  className="mt-3 border border-gold px-5 py-2 font-sans text-xs uppercase tracking-[0.25em] text-gold transition-colors hover:bg-gold hover:text-ivory"
+                  className="mt-3 border border-gold px-5 py-2 font-sans text-xs uppercase tracking-[0.25em] text-gold-light transition-colors hover:bg-gold hover:text-burgundy-dark"
                 >
                   {copied ? "Copied" : "Copy number"}
                 </button>
               </div>
             </div>
 
-            <p className="text-center font-serif text-lg italic text-ink/70">
+            <p className="text-center font-serif text-lg italic text-paper/80">
               {donation.note}
             </p>
 
-            <label className="flex cursor-pointer items-start gap-3 border border-gold/40 bg-ivory p-4">
+            <label className="flex cursor-pointer items-start gap-3 border border-gold/40 bg-surface-deep p-4">
               <input
                 type="checkbox"
                 checked={transferMade}
                 onChange={(event) => setTransferMade(event.target.checked)}
                 className="mt-1 h-5 w-5 shrink-0 accent-[#b08d57]"
               />
-              <span className="font-sans text-base text-ink">
+              <span className="font-sans text-base text-paper">
                 I have made the transfer
               </span>
             </label>
 
             {transferMade && (
               <div>
-                <label htmlFor="amount" className={labelClass}>
+                <label htmlFor="amount" className={`${labelClass} mb-2`}>
                   Amount sent (optional)
                 </label>
                 <input
@@ -292,15 +298,18 @@ export default function GiftSection({
         )}
       </div>
 
-      {/* Guest details */}
-      <div className="mx-auto max-w-xl space-y-8">
-        <h3 className="text-center font-serif text-3xl text-ink">
-          Your details
-        </h3>
+      {/* Guest details on a cream card so the fields are easy to see */}
+      <div className="mx-auto max-w-xl space-y-6 border border-gold bg-paper p-6 shadow-xl shadow-black/30 sm:p-10">
+        <div className="text-center">
+          <h3 className="font-serif text-3xl text-burgundy">Your details</h3>
+          <p className="mt-2 font-sans text-sm text-ink/70">
+            Fields marked * are required.
+          </p>
+        </div>
 
         <div>
-          <label htmlFor="gift-name" className={labelClass}>
-            Full name
+          <label htmlFor="gift-name" className={formLabelClass}>
+            Full name <span className="text-burgundy-light">*</span>
           </label>
           <input
             id="gift-name"
@@ -309,14 +318,14 @@ export default function GiftSection({
             required
             maxLength={100}
             autoComplete="name"
-            placeholder="Your name"
+            placeholder="Type your full name"
             className={fieldClass}
           />
         </div>
 
         <div>
-          <label htmlFor="gift-email" className={labelClass}>
-            Email
+          <label htmlFor="gift-email" className={formLabelClass}>
+            Email <span className="text-burgundy-light">*</span>
           </label>
           <input
             id="gift-email"
@@ -331,7 +340,7 @@ export default function GiftSection({
         </div>
 
         <div>
-          <label htmlFor="gift-companions" className={labelClass}>
+          <label htmlFor="gift-companions" className={formLabelClass}>
             People coming with you
           </label>
           <select
@@ -346,13 +355,13 @@ export default function GiftSection({
               </option>
             ))}
           </select>
-          <p className="mt-2 font-sans text-sm text-muted">
+          <p className="mt-2 font-sans text-sm text-ink/70">
             Please do not count yourself.
           </p>
         </div>
 
         <div>
-          <label htmlFor="gift-message" className={labelClass}>
+          <label htmlFor="gift-message" className={formLabelClass}>
             A note for the couple (optional)
           </label>
           <textarea
@@ -366,17 +375,17 @@ export default function GiftSection({
         </div>
 
         {selectedNames.length > 0 && (
-          <p className="text-center font-sans text-sm leading-relaxed text-muted">
+          <p className="text-center font-sans text-sm leading-relaxed text-ink/80">
             Your gifts: {selectedNames.join(", ")}
           </p>
         )}
 
-        <p className="text-center font-serif text-lg italic text-muted">
+        <p className="text-center font-serif text-lg italic text-ink/70">
           {choiceText}
         </p>
 
         {error && (
-          <p role="alert" className="text-center font-sans text-sm text-red-700">
+          <p role="alert" className="text-center font-sans text-sm font-medium text-red-700">
             {error}
           </p>
         )}
@@ -384,7 +393,7 @@ export default function GiftSection({
         <button
           type="submit"
           disabled={status === "sending"}
-          className="w-full bg-gold px-8 py-4 font-sans text-sm uppercase tracking-[0.3em] text-ivory transition-colors hover:bg-ink disabled:opacity-60"
+          className="w-full bg-burgundy px-8 py-4 font-sans text-sm uppercase tracking-[0.3em] text-paper transition-colors hover:bg-burgundy-dark disabled:opacity-60"
         >
           {status === "sending" ? "Sending..." : "Confirm and reserve"}
         </button>
