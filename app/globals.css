@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #faf6ee;
-  --foreground: #3a342c;
+  --background: #4f1020;
+  --foreground: #f7eddc;
 }
 
 @theme inline {
@@ -13,6 +13,18 @@
   --color-gold-light: #d4b982;
   --color-ink: #3a342c;
   --color-muted: #7a7064;
+
+  --color-burgundy: #7d2236;
+  --color-burgundy-dark: #3f0b18;
+  --color-burgundy-light: #7d2236;
+
+  /* Burgundy website theme */
+  --color-surface: #4f1020;
+  --color-surface-alt: #5e1426;
+  --color-surface-deep: #3f0b18;
+  --color-card: #6e1b30;
+  --color-paper: #f7eddc;
+  --color-paper-soft: #d9c4bd;
 
   --font-sans: var(--font-jost);
   --font-serif: var(--font-cormorant);
@@ -30,7 +42,7 @@ body {
 }
 
 ::selection {
-  background: rgba(176, 141, 87, 0.25);
+  background: rgba(212, 185, 130, 0.35);
 }
 
 /* Hero entrance animation */
@@ -47,6 +59,11 @@ body {
 
 .fade-up {
   animation: fade-up 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Hold the hero animation until the envelope is opened */
+.intro-locked .fade-up {
+  animation-play-state: paused;
 }
 
 /* Scroll reveal (used by the Reveal component) */
@@ -86,6 +103,79 @@ body {
   animation: scroll-line 2.4s ease-in-out infinite;
 }
 
+/* Envelope intro */
+.env-scene {
+  perspective: 1200px;
+}
+
+.env-overlay {
+  transition:
+    opacity 1.1s ease,
+    transform 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.env-overlay[data-stage="reveal"] {
+  opacity: 0;
+  transform: scale(1.08);
+  pointer-events: none;
+}
+
+.env-intro-text {
+  transition: opacity 0.6s ease;
+}
+
+.env-overlay[data-stage="opening"] .env-intro-text,
+.env-overlay[data-stage="reveal"] .env-intro-text {
+  opacity: 0;
+}
+
+.env-group {
+  cursor: pointer;
+  transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.env-overlay[data-stage="opening"] .env-group,
+.env-overlay[data-stage="reveal"] .env-group {
+  transform: translateY(8vh);
+}
+
+.env-flap {
+  z-index: 30;
+  transform-origin: top center;
+  transition:
+    transform 0.9s ease-in-out,
+    z-index 0s linear 0.45s;
+}
+
+.env-overlay[data-stage="opening"] .env-flap,
+.env-overlay[data-stage="reveal"] .env-flap {
+  transform: rotateX(180deg);
+  z-index: 1;
+}
+
+.env-letter {
+  z-index: 10;
+  transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.7s;
+}
+
+.env-overlay[data-stage="opening"] .env-letter,
+.env-overlay[data-stage="reveal"] .env-letter {
+  transform: translateY(-72%);
+}
+
+.env-seal {
+  transition:
+    transform 0.5s ease,
+    opacity 0.5s ease;
+}
+
+.env-overlay[data-stage="opening"] .env-seal,
+.env-overlay[data-stage="reveal"] .env-seal {
+  transform: scale(0);
+  opacity: 0;
+  pointer-events: none;
+}
+
 /* Respect people who prefer less motion */
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -99,5 +189,14 @@ body {
     opacity: 1;
     transform: none;
     transition: none;
+  }
+  .env-overlay,
+  .env-intro-text,
+  .env-group,
+  .env-flap,
+  .env-letter,
+  .env-seal {
+    transition-duration: 0.01ms !important;
+    transition-delay: 0s !important;
   }
 }

@@ -24,22 +24,22 @@ export const wedding = {
       "With joy in our hearts and thanks to God, together with our families, we invite you to celebrate the day we say “I do”.",
       "Your love and support have shaped our journey, and we would be honoured to have you with us as we begin this new chapter.",
     ],
-    signoff: "JOY & OBI",
+    signoff: "JOY weds OBI",
   },
 
   story: [
     {
-      year: "2019",
+      year: "it begins",
       title: "We met",
-      text: "A mutual friend introduced us at a small birthday dinner. We talked for hours and forgot to eat.",
+      text: "A mutual friend introduced us at a small dinner. We talked for hours and forgot to eat.",
     },
     {
-      year: "2021",
+      year: "Love grows",
       title: "Our first trip",
       text: "A weekend away turned into a long list of inside jokes, and we knew this was something special.",
     },
     {
-      year: "2025",
+      year: "Love deepens",
       title: "He asked",
       text: "On a quiet evening, with no crowd and no fuss, Obi asked the question and Joy said yes.",
     },
@@ -55,7 +55,7 @@ export const wedding = {
     time: "10:00 AM",
     venue: "Holy Trinity Catholic Church",
     address: "Achina, Anambra State, Nigeria",
-    note: "Please be seated by 10:30 AM.",
+    note: "Please be seated by 10:00 AM.",
   },
 
   reception: {
@@ -75,17 +75,17 @@ export const wedding = {
     tip: "Parking is available on site. We suggest leaving early because of traffic.",
   },
 
-  dressCode: {
-    title: "Formal and elegant",
-    text: "We would love to see you dressed in soft, warm tones. Please avoid white and ivory, which are kept for the bride.",
+   dressCode: {
+    title: "Colour of the day",
+    text: "Our colours are burgundy, peach, white, and gold. Please wear any of these colours, alone or mixed together, and help us paint the day.",
     swatches: [
-      { name: "Champagne", hex: "#e8d9b5" },
-      { name: "Sage", hex: "#a9b59a" },
-      { name: "Dusty rose", hex: "#d9b8b0" },
-      { name: "Warm gold", hex: "#b08d57" },
-      { name: "Deep olive", hex: "#6b6b4a" },
+      { name: "Burgundy", hex: "#800020" },
+      { name: "Peach", hex: "#f7c1a3" },
+      { name: "White", hex: "#ffffff" },
+      { name: "Gold", hex: "#c9a24a" },
     ],
   },
+  
 
   
 gallery: [
