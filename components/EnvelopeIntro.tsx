@@ -163,7 +163,7 @@ export default function EnvelopeIntro({
               <div className="env-letter absolute inset-x-[7%] top-[10%] h-[80%] bg-ivory p-2 shadow-md">
                 <div className="flex h-full flex-col items-center border border-gold/40 px-3 pt-5">
                   <p className="font-sans text-[10px] uppercase tracking-[0.3em] text-gold">
-                    Together with their families
+                    Together with Our families
                   </p>
                   <p className="mt-3 font-script text-4xl leading-tight text-burgundy sm:text-5xl">
                     {partner1} &amp; {partner2}
