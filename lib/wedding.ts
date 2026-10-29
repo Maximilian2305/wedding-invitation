@@ -31,7 +31,7 @@ export const wedding = {
     {
       year: "it begins",
       title: "We met",
-      text: "A mutual friend introduced us at a small dinner. We talked for hours and forgot to eat.",
+      text: "His brother introduced us at a small dinner. We talked for hours and forgot to eat.",
     },
     {
       year: "Love grows",
