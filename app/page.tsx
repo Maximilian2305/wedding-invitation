@@ -111,40 +111,62 @@ export default function Home() {
           </Reveal>
         </section>
 
-        {/* OUR STORY */}
-        <section id="story" className="bg-surface px-6 py-24 sm:py-32">
-          <div className="mx-auto max-w-2xl">
-            <Reveal>
-              <SectionHeading eyebrow="How it began" title="Our Story" />
-            </Reveal>
-            <ol className="border-l border-gold/40">
-              {wedding.story.map((item, index) => (
-                <li
-                  key={`${index}-${item.title}`}
-                  className="relative pb-12 pl-8 last:pb-0 sm:pl-10"
-                >
-                  <span
-                    aria-hidden
-                    className="absolute -left-[5.5px] top-2 h-2.5 w-2.5 rotate-45 bg-gold"
+        
+{/* OUR STORY */}
+<section id="story" className="bg-surface px-6 py-24 sm:py-32">
+  <div className="mx-auto max-w-2xl">
+    <Reveal>
+      <SectionHeading eyebrow="How it began" title="Our Story" />
+    </Reveal>
+
+    <ol className="border-l border-gold/40">
+      {wedding.story.map((item, index) => (
+        <li
+          key={`${index}-${item.title}`}
+          className="relative pb-12 pl-8 last:pb-0 sm:pl-10"
+        >
+          <span
+            aria-hidden
+            className="absolute -left-[5.5px] top-2 h-2.5 w-2.5 rotate-45 bg-gold"
+          />
+
+          <Reveal delay={index * 80}>
+            <div className="animate-[slideUp_0.9s_ease-out_both]">
+
+              {/* Story write-up */}
+              {item.year && (
+                <p className="font-sans text-xs uppercase tracking-[0.3em] text-gold-light">
+                  {item.year}
+                </p>
+              )}
+
+              <h3 className="mt-2 font-serif text-3xl text-paper">
+                {item.title}
+              </h3>
+
+              <p className="mt-3 font-sans text-base leading-relaxed text-paper-soft">
+                {item.text}
+              </p>
+
+              {/* Story image */}
+              {"src" in item && item.src && (
+                <div className="mt-6 max-w-sm overflow-hidden rounded-sm">
+                  <img
+                    src={item.src}
+                    alt={item.alt || item.title}
+                    className="h-72 w-full object-cover transition-transform duration-700 hover:scale-105"
                   />
-                  <Reveal delay={index * 80}>
-                    {item.year && (
-                      <p className="font-sans text-xs uppercase tracking-[0.3em] text-gold-light">
-                        {item.year}
-                      </p>
-                    )}
-                    <h3 className="mt-2 font-serif text-3xl text-paper">
-                      {item.title}
-                    </h3>
-                    <p className="mt-3 font-sans text-base leading-relaxed text-paper-soft">
-                      {item.text}
-                    </p>
-                  </Reveal>
-                </li>
-              ))}
-            </ol>
-          </div>
-        </section>
+                </div>
+              )}
+
+            </div>
+          </Reveal>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+
 
         {/* CEREMONY AND RECEPTION */}
         <section id="details" className="bg-surface-deep px-6 py-24 sm:py-32">

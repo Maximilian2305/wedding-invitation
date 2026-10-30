@@ -14,7 +14,7 @@
   --color-ink: #3a342c;
   --color-muted: #7a7064;
 
-  --color-burgundy: #7d2236;
+  --color-burgundy: #5e1426;
   --color-burgundy-dark: #3f0b18;
   --color-burgundy-light: #7d2236;
 
@@ -29,10 +29,6 @@
   --font-sans: var(--font-jost);
   --font-serif: var(--font-cormorant);
   --font-script: var(--font-pinyon);
-}
-
-html {
-  scroll-behavior: smooth;
 }
 
 body {
@@ -78,6 +74,13 @@ body {
 .reveal.is-visible {
   opacity: 1;
   transform: none;
+}
+
+/* The gifts section shows at once, with no fade, so "Send a gift" lands on it straight away */
+#gifts .reveal {
+  opacity: 1;
+  transform: none;
+  transition: none;
 }
 
 /* Small moving line under the hero */
@@ -178,9 +181,6 @@ body {
 
 /* Respect people who prefer less motion */
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
   .fade-up,
   .scroll-line {
     animation: none;
@@ -198,5 +198,15 @@ body {
   .env-seal {
     transition-duration: 0.01ms !important;
     transition-delay: 0s !important;
+  }
+}
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

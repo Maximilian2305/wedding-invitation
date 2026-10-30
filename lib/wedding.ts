@@ -32,16 +32,25 @@ export const wedding = {
       year: "it begins",
       title: "We met",
       text: "His brother introduced us at a small dinner. We talked for hours and forgot to eat.",
+      alt: "Joy and Obi laughing together",
+      src: "/gallery/photo-1.jpg",
+      aspect: "aspect-[3/5]",
     },
     {
       year: "Love grows",
       title: "Our first trip",
       text: "A weekend away turned into a long list of inside jokes, and we knew this was something special.",
+      alt: "Joy and Obi on a dinner date",
+      src: "/gallery/photo-3.jpg",
+      aspect: "aspect-[3/5]",
     },
     {
       year: "Love deepens",
       title: "He asked",
       text: "On a quiet evening, with no crowd and no fuss, Obi asked the question and Joy said yes.",
+      alt: "Joy and Obi on their engagement day",
+      src: "/gallery/photo-4.jpg",
+      aspect: "aspect-[3/5]",
     },
     {
       year: "2027",
@@ -105,7 +114,11 @@ gallery: [
     src: "/gallery/photo-4.jpg",
     aspect: "aspect-[3/5]",
   },
-  
+  {
+    alt: "Joy and Obi laughing together",
+    src: "/gallery/photo-6.jpg",
+    aspect: "aspect-[3/5]",
+  },
   
 ] as GalleryPhoto[],
 

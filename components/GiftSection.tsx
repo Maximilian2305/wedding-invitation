@@ -197,7 +197,8 @@ export default function GiftSection({
                         </span>
                         <span
                           aria-hidden
-                          className={`mt-1 flex h-6 w-6 shrink-0 items-center justify-center border text-sm ${
+                          className={`      <div className="mx-auto max-w-xl space-y-4 border border-gold bg-paper p-4 shadow-xl shadow-black/30 sm:p-10">
+ ${
                             isSelected
                               ? "border-gold bg-gold text-burgundy-dark"
                               : "border-gold/40 text-transparent"

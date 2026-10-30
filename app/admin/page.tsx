@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Suspense } from "react";
 import { isAdmin } from "../../lib/adminAuth";
 import { giftCategories, giftItems } from "../../lib/giftsConfig";
@@ -129,9 +130,9 @@ async function AdminContent({
             <h1 className="font-serif text-4xl text-ink">Guest list</h1>
           </div>
           <div className="flex flex-wrap gap-3">
-            <a href="/admin/export/gifts" className={buttonClass}>
+            <Link href="/admin/export/gifts" className={buttonClass}>
               Download CSV
-            </a>
+            </Link>
             <form action={logoutAdmin}>
               <button type="submit" className={buttonClass}>
                 Log out
